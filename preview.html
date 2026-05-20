@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Deepanshu Chander — Digital Transformation Consultant. Builder of enterprise AI platforms, low-code products, and enterprise systems at KPMG India." />
+  <meta name="author" content="Deepanshu Chander" />
+  <meta property="og:title" content="Deepanshu Chander" />
+  <meta property="og:description" content="Digital Transformation Consultant. Builder of enterprise AI platforms and low-code products at KPMG India." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <title>Deepanshu Chander</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --bg-2: #111111;
+      --bg-3: #1A1A1A;
+      --text-primary: #F0EDE8;
+      --text-secondary: #8A8680;
+      --text-tertiary: #4A4845;
+      --accent: #C8A96E;
+      --accent-dim: #8A7249;
+      --border: #222222;
+      --border-light: #2E2E2E;
+      --green: #7CA982;
+      --size-hero: clamp(3.2rem, 9vw, 7rem);
+      --size-display: clamp(2.2rem, 5vw, 4rem);
+      --size-heading: clamp(1.35rem, 2.5vw, 1.9rem);
+      --size-label: 0.72rem;
+      --size-body: 1rem;
+      --size-small: 0.875rem;
+      --max: 900px;
+      --pad-x: clamp(24px, 5vw, 48px);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; }
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+      z-index: 1000;
+      transform-origin: left;
+      animation: introLine 1.5s ease-out forwards;
+    }
+
+    @keyframes introLine {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .container {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    section {
+      position: relative;
+      padding: clamp(110px, 16vw, 190px) 0;
+    }
+
+    .eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: var(--size-label);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow.gold { color: var(--accent); }
+
+    h1, h2, h3, h4 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 300;
+      color: var(--text-primary);
+      margin: 0;
+      letter-spacing: -0.035em;
+    }
+
+    .section-title {
+      font-size: var(--size-display);
+      line-height: 0.98;
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .muted { color: var(--text-secondary); }
+    .gold { color: var(--accent); }
+    .mono { font-family: "JetBrains Mono", monospace; }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 80px var(--pad-x);
+    }
+
+    .hero-inner { max-width: 900px; }
+    .hero .eyebrow { color: var(--accent); }
+    .hero h1 {
+      font-size: var(--size-hero);
+      line-height: 0.94;
+      margin: 18px 0 26px;
+    }
+
+    .hero h1 span { display: block; }
+    .tagline {
+      max-width: 610px;
+      margin: 0 auto 34px;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+    }
+
+    .hero-thesis {
+      max-width: 760px;
+      margin: 0 auto 32px;
+      color: var(--text-primary);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.2;
+      opacity: 0.92;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .pill, .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      line-height: 1;
+      color: var(--accent);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .badge {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--text-tertiary);
+      font-size: 0.65rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .badge.green { color: var(--green); border-color: rgba(124,169,130,0.35); }
+
+    .hero-load {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroIn 0.72s ease-out forwards;
+    }
+    .hero-load:nth-child(1) { animation-delay: 0.12s; }
+    .hero-load:nth-child(2) { animation-delay: 0.22s; }
+    .hero-load:nth-child(3) { animation-delay: 0.32s; }
+    .hero-load:nth-child(4) { animation-delay: 0.42s; }
+    .hero-load:nth-child(5) { animation-delay: 0.52s; }
+
+    @keyframes heroIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .scroll-prompt {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.68rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.12em;
+      animation: bounce 2.2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 8px); }
+    }
+
+    .timeline {
+      margin-top: 70px;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 130px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--accent-dim);
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    .timeline.line-visible::before {
+      animation: growLine 1s ease-out forwards;
+    }
+    @keyframes growLine { to { opacity: 0.75; transform: scaleY(1); } }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 68px;
+      margin-bottom: 54px;
+      position: relative;
+    }
+    .timeline-row::after {
+      content: "";
+      position: absolute;
+      left: 125px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 0 6px var(--bg);
+    }
+    .year {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+    .timeline h3 { font-size: 1.55rem; line-height: 1.1; margin-bottom: 8px; }
+    .accent-detail { color: var(--accent); font-size: 0.72rem; margin-top: 10px; }
+
+    .intro {
+      max-width: 660px;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+
+    .card-stack { margin-top: 56px; }
+    .project-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005)), var(--bg-2);
+      border-left: 3px solid var(--accent);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-radius: 0 12px 12px 0;
+      padding: clamp(24px, 5vw, 36px);
+      margin-bottom: 24px;
+    }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .impact {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 2.05rem);
+      line-height: 1.12;
+      color: var(--text-primary);
+      font-style: italic;
+      margin: 0 0 20px;
+    }
+    .project-card ul, .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .project-card li, .feature-list li {
+      position: relative;
+      padding-left: 22px;
+      margin: 10px 0;
+      font-size: 0.92rem;
+    }
+    .project-card li::before, .feature-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .milestone {
+      background: linear-gradient(90deg, rgba(200,169,110,0.08), rgba(255,255,255,0.02), rgba(200,169,110,0.04)), var(--bg-3);
+      border: 1px solid var(--border);
+      padding: clamp(28px, 5vw, 42px) clamp(24px, 5vw, 48px);
+      text-align: center;
+      margin: 38px 0;
+      border-radius: 14px;
+    }
+    .milestone .number {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.9;
+      color: var(--accent);
+    }
+    .milestone .label { margin-top: 12px; }
+    .milestone .sub { font-size: 0.78rem; color: var(--text-tertiary); margin-top: 6px; }
+
+    .belief {
+      margin-top: 40px;
+      padding-left: 20px;
+      border-left: 1px solid var(--accent-dim);
+      color: var(--text-primary);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .featured-project {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 46px;
+      margin-top: 58px;
+    }
+    .project-label { color: var(--accent); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .project-name { font-size: clamp(3rem, 7vw, 5.2rem); line-height: 0.9; margin: 18px 0 8px; }
+    .subtitle { font-size: 1.05rem; margin-bottom: 20px; }
+
+    .mock-ui {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      background: #0D0D0D;
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 42px 90px rgba(0,0,0,0.65);
+    }
+    .mock-top {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding: 0 16px;
+      background: #090909;
+    }
+    .dots { display: flex; gap: 6px; }
+    .dot-window { width: 8px; height: 8px; border-radius: 50%; background: var(--border-light); }
+    .mock-brand { color: var(--accent); font-size: 0.7rem; margin-left: 8px; }
+    .mock-body { display: grid; grid-template-columns: 205px 1fr; min-height: 420px; }
+    .mock-sidebar { background: #080808; border-right: 1px solid var(--border); padding: 20px; }
+    .mock-sidebar .label { font-size: 0.65rem; color: var(--text-tertiary); margin-bottom: 16px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .agent-item { display: flex; gap: 9px; align-items: center; padding: 10px 0; font-size: 0.78rem; color: var(--text-secondary); border-bottom: 1px solid rgba(255,255,255,0.035); }
+    .agent-icon { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-dim); }
+    .chat-panel { display: flex; flex-direction: column; min-width: 0; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; padding: 16px 18px; border-bottom: 1px solid var(--border); }
+    .filter-pill { font-size: 0.68rem; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border-light); color: var(--text-tertiary); }
+    .filter-pill.active { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+    .messages { flex: 1; padding: 28px 20px 16px; display: flex; flex-direction: column; gap: 16px; }
+    .bubble { max-width: 75%; padding: 13px 16px; border-radius: 15px; font-size: 0.82rem; line-height: 1.5; }
+    .bubble.user { align-self: flex-end; background: rgba(138,114,73,0.55); color: var(--text-primary); border-bottom-right-radius: 4px; }
+    .bubble.agent { align-self: flex-start; background: var(--bg-3); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+    .typing { display: flex; gap: 5px; margin-left: 4px; }
+    .typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.35; animation: pulse 1.2s infinite; }
+    .typing span:nth-child(2) { animation-delay: 0.2s; }
+    .typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 50% { opacity: 1; transform: translateY(-3px); } }
+    .mock-input { margin: 0 18px 18px; padding: 12px 14px; border: 1px solid var(--border-light); border-radius: 999px; display: flex; justify-content: space-between; color: var(--text-tertiary); font-size: 0.78rem; background: #0A0A0A; }
+    .input-icons { color: var(--accent); letter-spacing: 0.4em; }
+
+    .support-grid, .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 44px;
+    }
+    .small-card, .award-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 26px;
+      min-height: 100%;
+    }
+    .small-card h3 { font-size: 1.45rem; line-height: 1.05; margin: 14px 0; }
+    .small-card p { font-size: 0.86rem; margin: 0; }
+
+    .leader-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1px 1.35fr;
+      gap: clamp(34px, 6vw, 60px);
+      margin-top: 58px;
+      align-items: start;
+    }
+    .divider { width: 1px; min-height: 100%; background: var(--border); }
+    .stat { margin-bottom: 42px; }
+    .stat-number {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--accent);
+      font-size: clamp(3.3rem, 8vw, 5.8rem);
+      line-height: 0.8;
+    }
+    .stat-label { font-size: 0.88rem; margin-top: 12px; }
+    .leader-copy p { margin: 0 0 22px; }
+    .leader-copy .standalone {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--text-primary);
+      font-style: italic;
+      font-size: clamp(1.7rem, 4vw, 2.55rem);
+      margin: 34px 0;
+      line-height: 1.05;
+    }
+
+    .award-card { position: relative; overflow: hidden; }
+    .award-card::before, .award-card::after {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--accent);
+      opacity: 0.65;
+    }
+    .award-card::before { width: 34px; height: 1px; }
+    .award-card::after { width: 1px; height: 34px; }
+    .award-date { color: var(--accent); font-size: 0.68rem; letter-spacing: 0.08em; }
+    .award-card h3 { font-size: 1.5rem; line-height: 1.1; margin: 16px 0 6px; }
+    .signed { font-size: 0.76rem; color: var(--text-tertiary); }
+    .citation {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-style: italic;
+    }
+    .iim-banner {
+      margin-top: 28px;
+      text-align: center;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 34px 24px;
+    }
+    .iim-banner h3 { font-size: clamp(1.6rem, 3vw, 2rem); margin: 8px 0; }
+
+    .philosophy {
+      margin-top: 96px;
+      display: grid;
+      gap: 16px;
+    }
+    .principle {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--text-primary);
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.16;
+    }
+
+    .skills-grid { margin-top: 56px; border-top: 1px solid var(--border); }
+    .skill-row {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 26px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-label { color: var(--text-primary); font-weight: 700; font-size: 0.9rem; }
+    .skill-value { color: var(--text-secondary); font-size: 0.78rem; line-height: 1.7; }
+    .subheading {
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      margin-top: 88px;
+      margin-bottom: 28px;
+    }
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .cert-list { list-style: none; padding: 0; margin: 0; }
+    .cert-list li { position: relative; padding-left: 20px; margin: 10px 0; font-size: 0.9rem; }
+    .cert-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+    .patent-line {
+      text-align: center;
+      margin-top: 64px;
+      color: var(--text-tertiary);
+      font-size: 0.78rem;
+      line-height: 1.7;
+    }
+    .contact-block { text-align: center; margin-top: 120px; }
+    .contact-block h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1; margin-bottom: 28px; }
+    .email-link {
+      position: relative;
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    .email-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .email-link:hover::after { transform: scaleX(1); }
+    .linkedin { display: block; color: var(--text-tertiary); text-decoration: none; font-size: 0.9rem; }
+    .availability { margin-top: 26px; font-size: 0.68rem; color: var(--text-tertiary); letter-spacing: 0.04em; }
+    footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-tertiary); font-size: 0.7rem; }
+
+    .side-nav {
+      position: fixed;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .side-nav.nav-visible { opacity: 1; pointer-events: auto; }
+    .nav-dot {
+      position: relative;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--border-light);
+      display: block;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .nav-dot.active { background: var(--accent); transform: scale(1.2); }
+    .nav-dot span {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      color: var(--text-secondary);
+      font-size: 0.64rem;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .nav-dot:hover span { opacity: 1; }
+    .floating-cv {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 901;
+      text-decoration: none;
+      background: rgba(26,26,26,0.9);
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      backdrop-filter: blur(8px);
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .floating-cv:hover { color: var(--accent); border-color: var(--accent); }
+
+    .reveal { opacity: 0; transform: translateY(30px); }
+
+    @media (max-width: 820px) {
+      .timeline::before { left: 0; }
+      .timeline-row { grid-template-columns: 1fr; gap: 12px; padding-left: 30px; }
+      .timeline-row::after { left: -5px; }
+      .support-grid, .awards-grid { grid-template-columns: 1fr; }
+      .leader-layout { grid-template-columns: 1fr; gap: 28px; }
+      .divider { display: none; }
+      .mock-body { grid-template-columns: 1fr; }
+      .mock-sidebar { display: none; }
+      .skill-row { grid-template-columns: 1fr; gap: 6px; }
+      .cert-grid { grid-template-columns: 1fr; gap: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .side-nav { display: none; }
+      .floating-cv { right: 14px; bottom: 14px; }
+      .project-card { border-radius: 12px; border-left-width: 2px; }
+      .bubble { max-width: 92%; }
+      .hero { padding-inline: 18px; }
+      .pill { font-size: 0.72rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <nav class="side-nav" id="sideNav" aria-label="Section navigation">
+    <a href="#origin" class="nav-dot" data-section="origin"><span class="mono">Origin</span></a>
+    <a href="#ascent" class="nav-dot" data-section="ascent"><span class="mono">Ascent</span></a>
+    <a href="#builder" class="nav-dot" data-section="builder"><span class="mono">Builder</span></a>
+    <a href="#leader" class="nav-dot" data-section="leader"><span class="mono">Leader</span></a>
+    <a href="#invitation" class="nav-dot" data-section="invitation"><span class="mono">Invitation</span></a>
+  </nav>
+
+  <a href="Deepanshu_Chander_CV.pdf" class="floating-cv" title="Replace this file with your final CV PDF before deploying">Download CV</a>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="eyebrow hero-load mono">KPMG India · Digital Next · Associate Consultant</div>
+        <h1 class="hero-load"><span>Deepanshu</span><span>Chander</span></h1>
+        <div class="hero-thesis hero-load">Enterprise systems builder. Self-taught under pressure. Usually operating one level above title.</div>
+        <p class="tagline hero-load">Digital Transformation Consultant. Builder of enterprise AI platforms and low-code products. Occasional person who gets included in rooms his seniors don't.</p>
+        <div class="pill-row hero-load" aria-label="Highlights">
+          <span class="pill">3.5 years at Big 4</span>
+          <span class="pill">5 enterprise platforms shipped</span>
+          <span class="pill">CEO-level award</span>
+        </div>
+      </div>
+      <div class="scroll-prompt mono">scroll to begin ↓</div>
+    </section>
+
+    <section id="origin">
+      <div class="container">
+        <div class="eyebrow mono reveal">ACT I · ORIGIN</div>
+        <h2 class="section-title reveal">An engineer who didn't stay in the lab.</h2>
+        <p class="intro reveal">The first pattern was visible early: systems, signals, teams, and an instinct for making abstract machinery useful.</p>
+        <div class="timeline" id="timeline">
+          <div class="timeline-row reveal">
+            <div class="year">2019</div>
+            <div><h3>Electronics &amp; Communications Engineering</h3><p>Joined UIET, Panjab University. Studied control systems, communication theory, and signal processing — tools that turned out to be surprisingly useful for understanding enterprise data flows.</p></div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="year">2021</div>
+            <div><h3>The Bionic Arm</h3><p>Led a research team at MDART DIC building a prosthetic arm controlled by both EMG signals and EEG brain-computer interface. Achieved 93%+ classification accuracy. Applied for patent.</p><div class="accent-detail mono">Patent No. 548116 — Granted Aug 2024</div></div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="year">2021–22</div>
+            <div><h3>Jugaad Robotics Club</h3><p>Rose from Marketing Head to General Secretary. Learned how teams work, how events get done, and how to lead without authority.</p></div>
+          </div>
+          <div class="timeline-row reveal">
+            <div class="year">Jan 2023</div>
+            <div><h3>KPMG — Day One</h3><p>Joined as a Tech Analyst Intern in GRC-Tech. Knew SQL and electronics. Knew nothing about SAP, enterprise consulting, or what O2C meant. Learned all three within weeks.</p></div>
+          </div>
+        </div>
+        <div class="belief reveal">The engineer learned systems.</div>
+      </div>
+    </section>
+
+    <section id="ascent">
+      <div class="container">
+        <div class="eyebrow mono reveal">ACT II · THE ASCENT</div>
+        <h2 class="section-title reveal">Self-taught. Under pressure. Ahead of schedule.</h2>
+        <p class="intro reveal">In April 2024, a Director handed an Analyst a project that needed five enterprise applications built on a platform he had never touched. His roommate — who was supposed to help him learn — didn't. So he learned alone.</p>
+
+        <div class="card-stack">
+          <article class="project-card reveal">
+            <div class="badge-row"><span class="badge">ArcelorMittal · Sandvik · MindTree · Dr. Reddy's</span><span class="badge">SQL · PostgreSQL · Python · SAP</span></div>
+            <p class="impact">"Built KPI dashboards across five SAP modules for the world's second-largest steel producer."</p>
+            <ul>
+              <li>Developed table-level mastery of SAP data models — O2C, P2P, HR, Capex, Travel &amp; Expenses.</li>
+              <li>Trained anomaly detection models in Python using XGBoost and Random Forest for Dr. Reddy's Labs.</li>
+              <li>Built and maintained PostgreSQL pipelines using GeoKettle for ETL across sequential client engagements.</li>
+            </ul>
+          </article>
+
+          <div class="milestone reveal"><div class="number">April 2024</div><div class="label">The month everything changed.</div></div>
+
+          <article class="project-card reveal">
+            <div class="badge-row"><span class="badge">Suzlon Energy</span><span class="badge">OutSystems ODC</span><span class="badge green">First to Production</span></div>
+            <p class="impact">"The only app out of five to reach production first. Built solo. Self-taught on the platform."</p>
+            <ul>
+              <li>Ingested SAP dump reports across blade, nacelle, and hub plants, automating BOM-based coverage using existing Excel logic.</li>
+              <li>Delivered bottleneck and shortfall dashboards using OutSystems Data Grid, moving supply chain decisions from reactive to proactive.</li>
+              <li>Integrated with SAP via REST APIs — leveraging deep SAP module knowledge acquired across earlier engagements.</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="badge-row"><span class="badge">Suzlon Energy</span><span class="badge">OutSystems ODC</span></div>
+            <p class="impact">"Digitised the entire wind turbine project lifecycle — from paperwork to installation — for CTOs and CFOs."</p>
+            <ul>
+              <li>Automated creation of 12 interconnected project plans using reverse lead times, seasonal restrictions, and region-wise dependencies.</li>
+              <li>Delivered scenario analysis dashboards consumed in weekly executive reviews by Suzlon's CTO, CFO, and MD.</li>
+              <li>Translated workflows described only in PPT slides directly into production-ready screens that client approved on first demo.</li>
+            </ul>
+          </article>
+
+          <div class="milestone reveal"><div class="number">₹1.25 Cr</div><div class="label">Project value. Four apps. Four months. Agile.</div><div class="sub mono">Super Team KI Award — KPMG CEO</div></div>
+
+          <article class="project-card reveal">
+            <p class="impact">"The assistant manager who escalated my performance to the Director in week three was receiving tasks from me in daily scrums by July."</p>
+            <p>In April 2024, an internal escalation was raised questioning whether I could handle the project. The Director had faith. Three months later, I was assigning work to the person who had raised the concern — and leading client demos with Suzlon's MD.</p>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="badge-row"><span class="badge">Adani Coal</span><span class="badge">OutSystems O11</span></div>
+            <p class="impact">"Stepped in for a departing AM. Inherited a complex O11 platform. Led a migration and a team of two."</p>
+            <ul>
+              <li>Techno-Functional Lead on Adani's coal trading platform — customer onboarding, KYC, shipping contracts, ICICI wallet, Yellow AI WhatsApp, and SAP invoice integrations.</li>
+              <li>Spearheaded migration of 70%+ of modules from O11 Traditional Web to Reactive Web.</li>
+              <li>Led a team of 2 developers from August to December 2024.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="belief reveal">The analyst became indispensable.</div>
+      </div>
+    </section>
+
+    <section id="builder">
+      <div class="container">
+        <div class="eyebrow mono reveal">ACT III · THE BUILDER</div>
+        <h2 class="section-title reveal">From brief to production. Figma to deployment. Every line, every decision.</h2>
+
+        <div class="featured-project">
+          <div class="reveal">
+            <div class="project-label mono">KPMG Internal · OutSystems ODC · 2025</div>
+            <h2 class="project-name">Kurate AI</h2>
+            <p class="subtitle">Enterprise AI Agent Marketplace</p>
+            <p>KPMG's internal platform for discovering, deploying, and interacting with AI agents — built ground-up on OutSystems ODC. Designed the Figma prototypes, architected the database, built the marketplace, and shipped the product. Every component was mine.</p>
+            <ul class="feature-list">
+              <li>ChatGPT-style chat interface with full conversation history stored in database.</li>
+              <li>Agent marketplace with sector, industry, and archetype filters.</li>
+              <li>Speech-to-text via JavaScript nodes in OutSystems.</li>
+              <li>Async processes to handle agent execution beyond ODC's 60-second timeout.</li>
+              <li>Automation Anywhere bot triggers from marketplace UI.</li>
+              <li>Google Cloud Run self-serve deployment form for new agents.</li>
+              <li>Session management, duplicate detection, and REST API agent integration.</li>
+            </ul>
+          </div>
+
+          <div class="mock-ui reveal" aria-label="Kurate AI mock user interface">
+            <div class="mock-top"><div class="dots"><span class="dot-window"></span><span class="dot-window"></span><span class="dot-window"></span></div><div class="mock-brand mono">Kurate AI</div></div>
+            <div class="mock-body">
+              <aside class="mock-sidebar">
+                <div class="label mono">Agent Marketplace</div>
+                <div class="agent-item"><span class="agent-icon"></span>Valuation Agent</div>
+                <div class="agent-item"><span class="agent-icon"></span>Legal Summariser</div>
+                <div class="agent-item"><span class="agent-icon"></span>Market Research</div>
+                <div class="agent-item"><span class="agent-icon"></span>Compliance RCA</div>
+              </aside>
+              <div class="chat-panel">
+                <div class="filters"><span class="filter-pill active">Finance</span><span class="filter-pill">Legal</span><span class="filter-pill">Operations</span><span class="filter-pill">HR</span></div>
+                <div class="messages">
+                  <div class="bubble user">Analyse Q3 financial performance for APAC region</div>
+                  <div class="bubble agent">Running valuation agent... Fetching APAC data across 14 markets. Estimated completion: 3 min.</div>
+                  <div class="typing" aria-hidden="true"><span></span><span></span><span></span></div>
+                </div>
+                <div class="mock-input"><span>Ask any agent...</span><span class="input-icons">⌕ ↗</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="support-grid">
+          <article class="small-card reveal"><div class="badge">Suzlon Energy · OutSystems ODC</div><h3>Legal Document Approval System</h3><p><strong class="gold">Sole ownership.</strong> UI to database to approval workflows. Brief to production in 2 months. Absorbed a major missed requirement at week 6 without timeline slip.</p></article>
+          <article class="small-card reveal"><div class="badge">Angular · Google ADK</div><h3>AI Valuation Tool</h3><p><strong class="gold">Led an AI product POC</strong> with 3 Directors on the team. Built Angular frontend while simultaneously learning the framework.</p></article>
+          <article class="small-card reveal"><div class="badge">ZOHO Creator</div><h3>Attendance Management App</h3><p><strong class="gold">Solo build.</strong> Full attendance management app for a security company. Another platform, another self-taught delivery.</p></article>
+        </div>
+        <div class="belief reveal">The builder became an owner.</div>
+      </div>
+    </section>
+
+    <section id="leader">
+      <div class="container">
+        <div class="eyebrow mono reveal">ACT IV · THE LEADER</div>
+        <h2 class="section-title reveal">The only Associate Consultant in a room full of managers.</h2>
+
+        <div class="leader-layout">
+          <div class="stats-stack">
+            <div class="stat reveal"><div class="stat-number" data-count="8">0</div><div class="stat-label">Resources led as POD Lead — including 2 Assistant Managers</div></div>
+            <div class="stat reveal"><div class="stat-number" data-count="3">0</div><div class="stat-label">Enterprise Sovos clients managed simultaneously</div></div>
+            <div class="stat reveal"><div class="stat-number" data-count="18" data-suffix="+">0</div><div class="stat-label">Interns trained across 3 cohorts in SQL and OutSystems</div></div>
+            <div class="stat reveal"><div class="stat-number" data-count="6">0</div><div class="stat-label">Years max experience of candidates interviewed — as an AC</div></div>
+          </div>
+          <div class="divider"></div>
+          <div class="leader-copy reveal">
+            <p>In January 2026, I was appointed POD Lead for a team of eight — two Assistant Managers, two Associate Consultants, two Analysts. Every other POD Lead in the programme holds an AM title or above.</p>
+            <p class="standalone">I'm an Associate Consultant.</p>
+            <p>Simultaneously, I'm consulting three enterprise clients on Sovos — a global tax compliance platform processing 6 billion e-invoices per year. I'm managing a junior team for a separate stalled project. And I'm leading an AI-Driven SDLC POC with a team of three.</p>
+            <p>My new performance manager said: "In all regards, you're one of the best resources in our team."</p>
+            <p>He didn't have anything else to add.</p>
+          </div>
+        </div>
+
+        <div class="awards-grid">
+          <article class="award-card reveal"><div class="award-date mono">March 2026</div><h3>Encore Impact Award</h3><div class="signed">Yezdi Nagporewalla, CEO — KPMG India</div><p class="citation">"Thank you for your valuable contributions across various initiatives, including the Kurate AI platform and client projects. You have demonstrated true versatility by quickly acquiring new skills and applying them effectively."</p></article>
+          <article class="award-card reveal"><div class="award-date mono">March 2025</div><h3>Super Team KI Award</h3><div class="signed">KPMG India</div><p class="citation">"Implementing four projects in just four months using the Agile approach is a testament to your dedication and resilience. The extension of the project to 1.25 crores wouldn't have been possible without your hard work."</p></article>
+          <article class="award-card reveal"><div class="award-date mono">December 2024</div><h3>Encore SPOT Award</h3><div class="signed">KPMG India</div><p class="citation">"Thank you for taking the lead and delivering 2 critical projects on time — creating a positive impact for the team." — Courage</p></article>
+        </div>
+
+        <div class="iim-banner reveal"><div class="mono" style="font-size:.68rem;color:var(--text-tertiary);letter-spacing:.12em;text-transform:uppercase;">Currently pursuing</div><h3>AI-Powered Product Management &amp; Growth Management</h3><div>IIM Rohtak × Masai School · March – August 2026 · Entrance cleared Jan 2026</div></div>
+
+        <div class="philosophy">
+          <div class="principle reveal">Learn fast enough that permission becomes irrelevant.</div>
+          <div class="principle reveal">Most enterprise problems are systems problems disguised as people problems.</div>
+          <div class="principle reveal">The best builders are translators: business ↔ systems ↔ users ↔ execution.</div>
+          <div class="principle reveal">Ownership is a technical skill.</div>
+        </div>
+        <div class="belief reveal">The title stopped mattering.</div>
+      </div>
+    </section>
+
+    <section id="invitation">
+      <div class="container">
+        <div class="eyebrow mono reveal">ACT V · THE INVITATION</div>
+        <h2 class="section-title reveal">If you've read this far, you probably already know.</h2>
+
+        <div class="skills-grid">
+          <div class="skill-row reveal"><div class="skill-label">Enterprise Platforms</div><div class="skill-value mono">OutSystems O11 &amp; ODC, Mendix, PEGA, Power Platform, ZOHO Creator, Appian, Camunda, Sovos</div></div>
+          <div class="skill-row reveal"><div class="skill-label">AI &amp; Agentic Systems</div><div class="skill-value mono">Google ADK, LangChain, Automation Anywhere, Python, BMAD framework, async agentic workflows</div></div>
+          <div class="skill-row reveal"><div class="skill-label">Frontend &amp; Product</div><div class="skill-value mono">ReactJS, Angular, HTML, CSS, JavaScript, Figma, MS Visio, UX methodology</div></div>
+          <div class="skill-row reveal"><div class="skill-label">Data &amp; Integration</div><div class="skill-value mono">SQL, PostgreSQL, MySQL, SAP modules, REST APIs, SOAP, JSON, GeoKettle</div></div>
+          <div class="skill-row reveal"><div class="skill-label">Cloud &amp; Deployment</div><div class="skill-value mono">Google Cloud Run, AWS ECS, Docker</div></div>
+          <div class="skill-row reveal"><div class="skill-label">Delivery</div><div class="skill-value mono">Agile/Scrum, Stakeholder Management, Solution Architecture, Product Ownership, CXO Demos</div></div>
+        </div>
+
+        <h3 class="subheading reveal">Certifications</h3>
+        <div class="cert-grid reveal">
+          <ul class="cert-list">
+            <li>Mendix Rapid Developer Certification</li>
+            <li>PEGA Business Architect Badge</li>
+            <li>Sovos eInvoicing Integration Functional Professional</li>
+            <li>McKinsey.org Forward Program</li>
+            <li>Google UX Design Professional Specialization</li>
+            <li>Google AI Essentials</li>
+          </ul>
+          <ul class="cert-list">
+            <li>Microsoft Power Platform Foundations</li>
+            <li>Microsoft Power Apps Essential Training</li>
+            <li>MySQL Explorer — Oracle</li>
+            <li>SQL Fundamentals — Accenture</li>
+            <li>Lean Six Sigma White Belt — CSSC</li>
+            <li>Claude 101 — Anthropic</li>
+          </ul>
+        </div>
+
+        <div class="patent-line mono reveal">Patent No. 548116 · Active Transradial Bionic Prosthetic Arm · Granted Aug 2024</div>
+
+        <div class="contact-block reveal">
+          <h2>Let's build something<br>worth building.</h2>
+          <a class="email-link" href="mailto:136deep@gmail.com">136deep@gmail.com</a>
+          <a class="linkedin" href="https://linkedin.com/in/136deep" target="_blank" rel="noopener">linkedin.com/in/136deep</a>
+          <div class="availability mono">Open to senior LCNC, Product, and Solution Architecture roles · Available October 2026</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mono">Deepanshu Chander · 2026 · Built with intent. Still building.</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8lUAfngy4w9iIs3w4Mkm5Z3p1Zht9jOM1b5q9+xE8IrWagLIFf5OTLCIV7mC8UpyM7AWc7+S3Q5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    const progress = document.getElementById('progress');
+    const sideNav = document.getElementById('sideNav');
+    const dots = Array.from(document.querySelectorAll('.nav-dot'));
+
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+      if (scrollTop > window.innerHeight * 0.65) sideNav.classList.add('nav-visible');
+      else sideNav.classList.remove('nav-visible');
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.utils.toArray('.reveal').forEach((el) => {
+        gsap.fromTo(el,
+          { autoAlpha: 0, y: 30 },
+          { autoAlpha: 1, y: 0, duration: 0.75, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 86%', once: true }
+          }
+        );
+      });
+
+      ScrollTrigger.create({
+        trigger: '#timeline',
+        start: 'top 75%',
+        once: true,
+        onEnter: () => document.getElementById('timeline').classList.add('line-visible')
+      });
+
+      gsap.fromTo('.mock-ui',
+        { autoAlpha: 0, y: 40, scale: 0.95 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: '.mock-ui', start: 'top 82%', once: true }
+        }
+      );
+
+      document.querySelectorAll('.stat-number').forEach((num) => {
+        const target = parseInt(num.dataset.count, 10);
+        const suffix = num.dataset.suffix || '';
+        const obj = { value: 0 };
+        ScrollTrigger.create({
+          trigger: num,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => {
+            gsap.to(obj, {
+              value: target,
+              duration: 1.5,
+              ease: 'power2.out',
+              onUpdate: () => { num.textContent = Math.round(obj.value) + suffix; }
+            });
+          }
+        });
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    }
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          dots.forEach(dot => dot.classList.toggle('active', dot.dataset.section === entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -45% 0px', threshold: 0.01 });
+
+    ['origin', 'ascent', 'builder', 'leader', 'invitation'].forEach(id => {
+      const section = document.getElementById(id);
+      if (section) sectionObserver.observe(section);
+    });
+  </script>
+</body>
+</html>
